@@ -19,4 +19,5 @@ wandb
 einops
 chardet
 opt_einsum
-torchmetrics==0.5.1
+torchmetrics==0.9.1
+
