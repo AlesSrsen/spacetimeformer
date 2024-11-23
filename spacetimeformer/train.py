@@ -655,7 +655,7 @@ def create_dset(config):
             if data_path == "auto":
                 raise ValueError("Please specify a datapath.")
             target_cols = ["close"]
-            time_col_name = "timestamp"
+            time_col_name = "time"
 
         dset = stf.data.CSVTimeSeries(
             data_path=data_path,
