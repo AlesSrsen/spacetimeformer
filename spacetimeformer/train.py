@@ -32,6 +32,7 @@ _DSETS = [
     "monash",
     "hangzhou",
     "traffic",
+    "dmts_crypto" # DMTS Modification
 ]
 
 
@@ -192,6 +193,10 @@ def create_model(config):
         x_dim = 2
         yc_dim = 862
         yt_dim = 862
+    elif config.dset == "dmts_crypto": # DMTS Modification
+        x_dim = 12
+        yc_dim = 1
+        yt_dim = 1
     assert x_dim is not None
     assert yc_dim is not None
     assert yt_dim is not None
@@ -646,6 +651,10 @@ def create_dset(config):
             target_cols = [f"Lane {i}" for i in range(862)]
             time_col_name = "FakeTime"
             time_features = ["month", "day"]
+        elif config.dset == "dmts_crypto": # DMTS Modification
+            if data_path == "auto":
+                raise ValueError("Please specify a datapath.")
+            target_cols = ["close"]
 
         dset = stf.data.CSVTimeSeries(
             data_path=data_path,
