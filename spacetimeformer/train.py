@@ -194,7 +194,7 @@ def create_model(config):
         yc_dim = 862
         yt_dim = 862
     elif config.dset == "dmts_crypto": # DMTS Modification
-        x_dim = 6
+        x_dim = 12
         yc_dim = 1
         yt_dim = 1
     assert x_dim is not None

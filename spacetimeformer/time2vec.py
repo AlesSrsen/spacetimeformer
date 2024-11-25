@@ -3,7 +3,7 @@ from torch import nn
 
 
 class Time2Vec(nn.Module):
-    def __init__(self, input_dim=6, embed_dim=512, act_function=torch.sin):
+    def __init__(self, input_dim=12, embed_dim=512, act_function=torch.sin):
         assert embed_dim % input_dim == 0
         super(Time2Vec, self).__init__()
         self.enabled = embed_dim > 0
